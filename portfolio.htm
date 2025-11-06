@@ -1,77 +1,118 @@
 <!DOCTYPE html>
 <html lang="en" class="h-full">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abdalsalam Abakar - Full-Stack Developer</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-…" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
     <style>
         body {
             box-sizing: border-box;
         }
+
         .page {
             display: none;
         }
+
         .page.active {
             display: block;
         }
+
         .gradient-bg {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
+
         .card-hover {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+
         .card-hover:hover {
             transform: translateY(-5px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         }
+
         .typing-animation {
             border-right: 2px solid #667eea;
             animation: blink 1s infinite;
         }
+
         @keyframes blink {
-            0%, 50% { border-color: transparent; }
-            51%, 100% { border-color: #667eea; }
+
+            0%,
+            50% {
+                border-color: transparent;
+            }
+
+            51%,
+            100% {
+                border-color: #667eea;
+            }
         }
+
         .skill-bar {
             transition: width 2s ease-in-out;
         }
+
         .project-image {
             background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #f5576c);
             background-size: 400% 400%;
             animation: gradientShift 8s ease infinite;
         }
+
         @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
         }
     </style>
 </head>
+
 <body class="h-full bg-gray-50 font-sans">
     <!-- Navigation -->
-    <nav class="bg-white shadow-lg sticky top-0 z-50">
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center">
-                    <div class="text-2xl font-bold text-indigo-600">Abdalsalam Abakar</div>
+                    <div class="text-2xl font-bold text-indigo-600"
+                        style="border: 2px solid rgb(32, 28, 28); padding: 7px; border-radius: 50%;">AB</div>
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
-                        <button onclick="showPage('home')" class="nav-link text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</button>
-                        <button onclick="showPage('about')" class="nav-link text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">About</button>
-                        <button onclick="showPage('skills')" class="nav-link text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Skills</button>
-                        <button onclick="showPage('portfolio')" class="nav-link text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Portfolio</button>
-                        <button onclick="showPage('blog')" class="nav-link text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Blog</button>
-                        <button onclick="showPage('testimonials')" class="nav-link text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Testimonials</button>
-                        <button onclick="showPage('contact')" class="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition-colors">Contact</button>
+                        <button onclick="showPage('home')"
+                            class="nav-link text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</button>
+                        <button onclick="showPage('about')"
+                            class="nav-link text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">About</button>
+                        <button onclick="showPage('skills')"
+                            class="nav-link text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Skills</button>
+                        <button onclick="showPage('portfolio')"
+                            class="nav-link text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Portfolio</button>
+                        <button onclick="showPage('blog')"
+                            class="nav-link text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Blog</button>
+                        <button onclick="showPage('testimonials')"
+                            class="nav-link text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Testimonials</button>
+                        <button onclick="showPage('contact')"
+                            class="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition-colors">Contact</button>
                     </div>
                 </div>
                 <!-- Mobile menu button -->
                 <div class="md:hidden">
                     <button onclick="toggleMobileMenu()" class="text-gray-700 hover:text-indigo-600">
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
                     </button>
                 </div>
@@ -80,13 +121,20 @@
         <!-- Mobile menu -->
         <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
             <div class="px-2 pt-2 pb-3 space-y-1">
-                <button onclick="showPage('home')" class="block text-gray-700 hover:text-indigo-600 px-3 py-2 text-base font-medium">Home</button>
-                <button onclick="showPage('about')" class="block text-gray-700 hover:text-indigo-600 px-3 py-2 text-base font-medium">About</button>
-                <button onclick="showPage('skills')" class="block text-gray-700 hover:text-indigo-600 px-3 py-2 text-base font-medium">Skills</button>
-                <button onclick="showPage('portfolio')" class="block text-gray-700 hover:text-indigo-600 px-3 py-2 text-base font-medium">Portfolio</button>
-                <button onclick="showPage('blog')" class="block text-gray-700 hover:text-indigo-600 px-3 py-2 text-base font-medium">Blog</button>
-                <button onclick="showPage('testimonials')" class="block text-gray-700 hover:text-indigo-600 px-3 py-2 text-base font-medium">Testimonials</button>
-                <button onclick="showPage('contact')" class="block bg-indigo-600 text-white px-3 py-2 text-base font-medium rounded-md">Contact</button>
+                <button onclick="showPage('home')"
+                    class="block text-gray-700 hover:text-indigo-600 px-3 py-2 text-base font-medium">Home</button>
+                <button onclick="showPage('about')"
+                    class="block text-gray-700 hover:text-indigo-600 px-3 py-2 text-base font-medium">About</button>
+                <button onclick="showPage('skills')"
+                    class="block text-gray-700 hover:text-indigo-600 px-3 py-2 text-base font-medium">Skills</button>
+                <button onclick="showPage('portfolio')"
+                    class="block text-gray-700 hover:text-indigo-600 px-3 py-2 text-base font-medium">Portfolio</button>
+                <button onclick="showPage('blog')"
+                    class="block text-gray-700 hover:text-indigo-600 px-3 py-2 text-base font-medium">Blog</button>
+                <button onclick="showPage('testimonials')"
+                    class="block text-gray-700 hover:text-indigo-600 px-3 py-2 text-base font-medium">Testimonials</button>
+                <button onclick="showPage('contact')"
+                    class="block bg-indigo-600 text-white px-3 py-2 text-base font-medium rounded-md">Contact</button>
             </div>
         </div>
     </nav>
@@ -98,21 +146,31 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div>
-                        <h1 class="text-5xl font-bold mb-6">Hi, I'm <span class="text-yellow-300">Abdalsalam Abakar</span></h1>
+                        <h1 class="text-5xl font-bold mb-6">Hi, I'm <span class="text-yellow-300">Abdalsalam Abakar
+                                Abdalkareem Bakr</span></h1>
                         <div class="text-2xl mb-6">
                             <span>I'm a </span>
                             <span id="typing-text" class="typing-animation font-semibold">Full-Stack Developer</span>
                         </div>
-                        <p class="text-xl mb-8 opacity-90">Passionate about creating innovative web solutions that make a difference. I specialize in modern technologies and love turning ideas into reality.</p>
+                        <p class="text-xl mb-8 opacity-90">Passionate about creating innovative web solutions that make
+                            a difference. I specialize in modern technologies and love turning ideas into reality.</p>
                         <div class="space-x-4">
-                            <button onclick="showPage('portfolio')" class="bg-white text-indigo-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">View My Work</button>
-                            <button onclick="showPage('contact')" class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-indigo-600 transition-colors">Get In Touch</button>
+                            <button onclick="showPage('portfolio')"
+                                class="bg-white text-indigo-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">View
+                                My Work</button>
+                            <button onclick="showPage('contact')"
+                                class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-indigo-600 transition-colors">Get
+                                In Touch</button>
                         </div>
                     </div>
                     <div class="text-center">
-                        <div class="w-80 h-80 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto backdrop-blur-sm">
-                            <div class="w-64 h-64 bg-white bg-opacity-30 rounded-full flex items-center justify-center backdrop-blur-sm">
-                                <div class="text-8xl">👨‍💻</div>
+                        <div
+                            class="w-80 h-80 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto backdrop-blur-sm">
+                            <div
+                                class="w-64 h-64 bg-white bg-opacity-30 rounded-full flex items-center justify-center backdrop-blur-sm">
+                                <div class="text-8xl"><img
+                                        src="./Gemini_Generated_Image_o69eofo69eofo69e-removebg-preview (1).png"
+                                        style="max-width: 250px; border-radius: 50%;"></div>
                             </div>
                         </div>
                     </div>
@@ -150,19 +208,23 @@
                 <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">What I Do</h2>
                 <div class="grid md:grid-cols-3 gap-8">
                     <div class="bg-white p-8 rounded-xl shadow-md card-hover">
-                        <div class="text-4xl mb-4">🌐</div>
+                        <div class="text-4xl mb-4"><i class="fa-solid fa-terminal"></i></div>
                         <h3 class="text-xl font-semibold mb-4">Frontend Development</h3>
-                        <p class="text-gray-600">Creating responsive and interactive user interfaces using React, Vue.js, and modern CSS frameworks.</p>
+                        <p class="text-gray-600">Creating responsive and interactive user interfaces using React,
+                            Vue.js, and modern CSS frameworks.</p>
                     </div>
                     <div class="bg-white p-8 rounded-xl shadow-md card-hover">
-                        <div class="text-4xl mb-4">⚙️</div>
+                        <div class="text-4xl mb-4"><i class="fa-solid fa-gear"></i></div>
                         <h3 class="text-xl font-semibold mb-4">Backend Development</h3>
-                        <p class="text-gray-600">Building robust server-side applications with Node.js, Python, and database management systems.</p>
+                        <p class="text-gray-600">Building robust server-side applications with Node.js, Python, and
+                            database management systems.</p>
                     </div>
                     <div class="bg-white p-8 rounded-xl shadow-md card-hover">
-                        <div class="text-4xl mb-4">📱</div>
+                        <div class="text-4xl mb-4"><i class="fa-solid fa-layer-group"></i>
+                        </div>
                         <h3 class="text-xl font-semibold mb-4">Full-Stack Solutions</h3>
-                        <p class="text-gray-600">End-to-end web application development from concept to deployment and maintenance.</p>
+                        <p class="text-gray-600">End-to-end web application development from concept to deployment and
+                            maintenance.</p>
                     </div>
                 </div>
             </div>
@@ -171,25 +233,34 @@
 
     <!-- About Page -->
     <div id="about" class="page">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 mt-8">
             <div class="text-center mb-12">
                 <h1 class="text-4xl font-bold text-gray-900 mb-4">About Me</h1>
-                <p class="text-xl text-gray-600">Get to know the person behind the code</p>
             </div>
 
             <!-- Personal Info -->
             <section class="mb-16">
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div>
-                        <div class="w-80 h-80 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full flex items-center justify-center mx-auto">
-                            <div class="text-9xl">👨‍💻</div>
+                        <div
+                            class="w-80 h-80 bg-gradient-to-r  to-purple-600 rounded-full flex items-center justify-center mx-auto">
+                            <div class="text-9xl"><img
+                                    src="./Gemini_Generated_Image_o69eofo69eofo69e-removebg-preview (1).png"
+                                    style="max-width: 250px; border-radius: ;"></div>
                         </div>
                     </div>
                     <div>
-                        <h2 class="text-3xl font-bold text-gray-900 mb-6">Hello! I'm Abdalsalam Abakar Abdalkareem Bakr</h2>
-                        <p class="text-gray-700 mb-4">I'm a passionate full-stack developer with over 3 years of experience in creating digital solutions that make a real impact. My journey in technology started with a curiosity about how things work, and it has evolved into a career dedicated to building innovative web applications.</p>
-                        <p class="text-gray-700 mb-4">I specialize in modern web technologies including React, Node.js, Python, and various databases. I believe in writing clean, maintainable code and creating user experiences that are both functional and delightful.</p>
-                        <p class="text-gray-700 mb-6">When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or sharing knowledge with the developer community.</p>
+                        <h2 class="text-3xl font-bold text-gray-900 mb-6">Hello! I'm Abdalsalam Abakar Abdalkareem Bakr
+                        </h2>
+                        <p class="text-gray-700 mb-4">I'm a passionate full-stack developer with over 3 years of
+                            experience in creating digital solutions that make a real impact. My journey in technology
+                            started with a curiosity about how things work, and it has evolved into a career dedicated
+                            to building innovative web applications.</p>
+                        <p class="text-gray-700 mb-4">I specialize in modern web technologies including React, Node.js,
+                            Python, and various databases. I believe in writing clean, maintainable code and creating
+                            user experiences that are both functional and delightful.</p>
+                        <p class="text-gray-700 mb-6">When I'm not coding, you can find me exploring new technologies,
+                            contributing to open-source projects, or sharing knowledge with the developer community.</p>
                         <div class="flex flex-wrap gap-4">
                             <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full">Problem Solver</span>
                             <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full">Team Player</span>
@@ -206,42 +277,50 @@
                 <div class="space-y-8">
                     <div class="bg-white p-6 rounded-lg shadow-md card-hover">
                         <div class="flex items-start">
-                            <div class="w-4 h-4 bg-indigo-600 rounded-full mt-2 mr-4"></div>
+                            
+                            <i class="fa-solid fa-graduation-cap text-sm text-gray-400 ml-1" style="color: #4a62cc;"></i>
+
                             <div class="flex-1">
                                 <div class="flex justify-between items-start mb-2">
-                                    <h3 class="text-xl font-semibold text-gray-900">Senior Full-Stack Developer</h3>
-                                    <span class="text-sm text-gray-500">2022 - Present</span>
+                                    <h3 class="text-xl font-semibold text-gray-900">Junior Full-Stack Developer</h3>
+                                    <span class="text-sm text-gray-500">2025 - Present</span>
                                 </div>
                                 <p class="text-indigo-600 mb-2">Tech Solutions Inc.</p>
-                                <p class="text-gray-700">Leading development of enterprise web applications, mentoring junior developers, and implementing best practices for code quality and performance optimization.</p>
+                                <p class="text-gray-700">Leading development of enterprise web applications, mentoring
+                                    junior developers, and implementing best practices for code quality and performance
+                                    optimization.</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="bg-white p-6 rounded-lg shadow-md card-hover">
                         <div class="flex items-start">
-                            <div class="w-4 h-4 bg-indigo-600 rounded-full mt-2 mr-4"></div>
+                           <i class="fa-solid fa-laptop-code" style="color: #4a62cc;"></i>
                             <div class="flex-1">
                                 <div class="flex justify-between items-start mb-2">
                                     <h3 class="text-xl font-semibold text-gray-900">Full-Stack Developer</h3>
-                                    <span class="text-sm text-gray-500">2021 - 2022</span>
+                                    <span class="text-sm text-gray-500">2025 - Present</span>
                                 </div>
                                 <p class="text-indigo-600 mb-2">Digital Innovations Ltd.</p>
-                                <p class="text-gray-700">Developed and maintained multiple client projects using React, Node.js, and MongoDB. Collaborated with design teams to implement pixel-perfect user interfaces.</p>
+                                <p class="text-gray-700">Developed and maintained multiple client projects using React,
+                                    Node.js, and MongoDB. Collaborated with design teams to implement pixel-perfect user
+                                    interfaces.</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="bg-white p-6 rounded-lg shadow-md card-hover">
                         <div class="flex items-start">
-                            <div class="w-4 h-4 bg-indigo-600 rounded-full mt-2 mr-4"></div>
+                           <i class="fa-solid fa-code" style="color: #4a62cc;"></i>
                             <div class="flex-1">
                                 <div class="flex justify-between items-start mb-2">
                                     <h3 class="text-xl font-semibold text-gray-900">Junior Web Developer</h3>
-                                    <span class="text-sm text-gray-500">2020 - 2021</span>
+                                    <span class="text-sm text-gray-500">2025 - Present</span>
                                 </div>
                                 <p class="text-indigo-600 mb-2">StartUp Hub</p>
-                                <p class="text-gray-700">Started my professional journey building responsive websites and learning modern development practices. Gained experience in version control, testing, and deployment.</p>
+                                <p class="text-gray-700">Started my professional journey building responsive websites
+                                    and learning modern development practices. Gained experience in version control,
+                                    testing, and deployment.</p>
                             </div>
                         </div>
                     </div>
@@ -254,9 +333,10 @@
                     <h3 class="text-2xl font-bold text-gray-900 mb-6">Education</h3>
                     <div class="space-y-4">
                         <div>
-                            <h4 class="text-lg font-semibold text-gray-900">Bachelor of Computer Science</h4>
-                            <p class="text-indigo-600">University of Technology</p>
-                            <p class="text-gray-500">2016 - 2020</p>
+                            <h4 class="text-lg font-semibold text-gray-900">Bachelor Degree</h4>
+                            <p class="text-indigo-600">University of Zalingei, Faculty of Languages, Department of
+                                English</p>
+                            <p class="text-gray-500">2015 - 2022</p>
                         </div>
                     </div>
                 </div>
@@ -265,16 +345,16 @@
                     <h3 class="text-2xl font-bold text-gray-900 mb-6">Certifications</h3>
                     <div class="space-y-4">
                         <div>
-                            <h4 class="text-lg font-semibold text-gray-900">AWS Certified Developer</h4>
-                            <p class="text-gray-500">Amazon Web Services - 2023</p>
+                            <h4 class="text-lg font-semibold text-gray-900">ALDOHA CENTER Certified English Course</h4>
+                            <p class="text-gray-500">English Course 2017 - 2020</p>
                         </div>
                         <div>
-                            <h4 class="text-lg font-semibold text-gray-900">React Professional Certificate</h4>
-                            <p class="text-gray-500">Meta - 2022</p>
+                            <h4 class="text-lg font-semibold text-gray-900">Step By Step Center Certified Computer Basics</h4>
+                            <p class="text-gray-500">Computer Basics 2017 - 2020</p>
                         </div>
                         <div>
-                            <h4 class="text-lg font-semibold text-gray-900">Node.js Application Developer</h4>
-                            <p class="text-gray-500">OpenJS Foundation - 2021</p>
+                            <h4 class="text-lg font-semibold text-gray-900">Alight Coding School</h4>
+                            <p class="text-gray-500">Full-Stack Developer - 2025</p>
                         </div>
                     </div>
                 </div>
@@ -284,7 +364,7 @@
 
     <!-- Skills Page -->
     <div id="skills" class="page">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 mt-8">
             <div class="text-center mb-12">
                 <h1 class="text-4xl font-bold text-gray-900 mb-4">My Skills</h1>
                 <p class="text-xl text-gray-600">Technologies and tools I work with</p>
@@ -308,14 +388,14 @@
                             </div>
                             <div>
                                 <div class="flex justify-between mb-2">
-                                    <span class="text-gray-700">JavaScript/TypeScript</span>
+                                    <span class="text-gray-700">JavaScript</span>
                                     <span class="text-gray-500">90%</span>
                                 </div>
                                 <div class="w-full bg-gray-200 rounded-full h-2">
                                     <div class="skill-bar bg-indigo-600 h-2 rounded-full" style="width: 90%"></div>
                                 </div>
                             </div>
-                            <div>
+                            <!-- <div>
                                 <div class="flex justify-between mb-2">
                                     <span class="text-gray-700">Vue.js</span>
                                     <span class="text-gray-500">85%</span>
@@ -323,7 +403,7 @@
                                 <div class="w-full bg-gray-200 rounded-full h-2">
                                     <div class="skill-bar bg-indigo-600 h-2 rounded-full" style="width: 85%"></div>
                                 </div>
-                            </div>
+                            </div> -->
                             <div>
                                 <div class="flex justify-between mb-2">
                                     <span class="text-gray-700">HTML5/CSS3</span>
@@ -357,7 +437,7 @@
                                     <div class="skill-bar bg-green-600 h-2 rounded-full" style="width: 90%"></div>
                                 </div>
                             </div>
-                            <div>
+                            <!-- <div>
                                 <div class="flex justify-between mb-2">
                                     <span class="text-gray-700">Python</span>
                                     <span class="text-gray-500">85%</span>
@@ -365,7 +445,7 @@
                                 <div class="w-full bg-gray-200 rounded-full h-2">
                                     <div class="skill-bar bg-green-600 h-2 rounded-full" style="width: 85%"></div>
                                 </div>
-                            </div>
+                            </div> -->
                             <div>
                                 <div class="flex justify-between mb-2">
                                     <span class="text-gray-700">Express.js</span>
@@ -487,32 +567,32 @@
                 <h2 class="text-3xl font-bold text-gray-900 mb-8">Soft Skills</h2>
                 <div class="grid md:grid-cols-3 gap-6">
                     <div class="bg-white p-6 rounded-lg shadow-md text-center card-hover">
-                        <div class="text-4xl mb-4">🧠</div>
+                        <div class="text-4xl mb-4"><img src="./image.png" alt="" style="width: 100px; margin: auto;"></div>
                         <h3 class="text-xl font-semibold mb-2">Problem Solving</h3>
                         <p class="text-gray-600">Analytical thinking and creative solutions to complex challenges</p>
                     </div>
                     <div class="bg-white p-6 rounded-lg shadow-md text-center card-hover">
-                        <div class="text-4xl mb-4">👥</div>
+                        <div class="text-4xl mb-4"><img src="./image copy.png" alt="" style="width: 100px; margin: auto;"></div>
                         <h3 class="text-xl font-semibold mb-2">Team Collaboration</h3>
                         <p class="text-gray-600">Effective communication and collaboration in diverse teams</p>
                     </div>
                     <div class="bg-white p-6 rounded-lg shadow-md text-center card-hover">
-                        <div class="text-4xl mb-4">📚</div>
+                        <div class="text-4xl mb-4"><img src="./image copy 2.png" alt="" style="width: 100px; margin: auto;"></div>
                         <h3 class="text-xl font-semibold mb-2">Continuous Learning</h3>
                         <p class="text-gray-600">Staying updated with latest technologies and best practices</p>
                     </div>
                     <div class="bg-white p-6 rounded-lg shadow-md text-center card-hover">
-                        <div class="text-4xl mb-4">⏰</div>
+                        <div class="text-4xl mb-4"><img src="./image copy 3.png" alt="" style="width: 100px; margin: auto;"></div>
                         <h3 class="text-xl font-semibold mb-2">Time Management</h3>
                         <p class="text-gray-600">Efficient project planning and deadline management</p>
                     </div>
                     <div class="bg-white p-6 rounded-lg shadow-md text-center card-hover">
-                        <div class="text-4xl mb-4">🎯</div>
+                        <div class="text-4xl mb-4"><img src="./image copy 4.png" alt="" style="width: 100px; margin: auto;"></div>
                         <h3 class="text-xl font-semibold mb-2">Attention to Detail</h3>
                         <p class="text-gray-600">Meticulous approach to code quality and user experience</p>
                     </div>
                     <div class="bg-white p-6 rounded-lg shadow-md text-center card-hover">
-                        <div class="text-4xl mb-4">💡</div>
+                        <div class="text-4xl mb-4"><img src="./image copy 5.png" alt="" style="width: 100px; margin: auto;"></div>
                         <h3 class="text-xl font-semibold mb-2">Innovation</h3>
                         <p class="text-gray-600">Creative thinking and implementing cutting-edge solutions</p>
                     </div>
@@ -523,7 +603,7 @@
 
     <!-- Portfolio Page -->
     <div id="portfolio" class="page">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 mt-8">
             <div class="text-center mb-12">
                 <h1 class="text-4xl font-bold text-gray-900 mb-4">My Portfolio</h1>
                 <p class="text-xl text-gray-600">A showcase of my recent projects and achievements</p>
@@ -532,10 +612,16 @@
             <!-- Filter Buttons -->
             <div class="flex justify-center mb-12">
                 <div class="flex flex-wrap gap-4">
-                    <button onclick="filterProjects('all')" class="filter-btn bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition-colors">All Projects</button>
-                    <button onclick="filterProjects('web')" class="filter-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-lg hover:bg-gray-300 transition-colors">Web Apps</button>
-                    <button onclick="filterProjects('mobile')" class="filter-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-lg hover:bg-gray-300 transition-colors">Mobile</button>
-                    <button onclick="filterProjects('api')" class="filter-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-lg hover:bg-gray-300 transition-colors">APIs</button>
+                    <button onclick="filterProjects('all')"
+                        class="filter-btn bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition-colors">All
+                        Projects</button>
+                    <button onclick="filterProjects('web')"
+                        class="filter-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-lg hover:bg-gray-300 transition-colors">Web
+                        Apps</button>
+                    <button onclick="filterProjects('mobile')"
+                        class="filter-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-lg hover:bg-gray-300 transition-colors">Mobile</button>
+                    <button onclick="filterProjects('api')"
+                        class="filter-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-lg hover:bg-gray-300 transition-colors">APIs</button>
                 </div>
             </div>
 
@@ -548,15 +634,18 @@
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-semibold text-gray-900 mb-2">E-Commerce Platform</h3>
-                        <p class="text-gray-600 mb-4">Full-stack e-commerce solution with React, Node.js, and MongoDB. Features include user authentication, payment integration, and admin dashboard.</p>
+                        <p class="text-gray-600 mb-4">Full-stack e-commerce solution with React, Node.js, and MongoDB.
+                            Features include user authentication, payment integration, and admin dashboard.</p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">React</span>
                             <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">Node.js</span>
                             <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-sm">MongoDB</span>
                         </div>
                         <div class="flex space-x-4">
-                            <a href="#" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-800 transition-colors">Live Demo</a>
-                            <a href="#" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-gray-800 transition-colors">GitHub</a>
+                            <a href="#" target="_blank" rel="noopener noreferrer"
+                                class="text-indigo-600 hover:text-indigo-800 transition-colors">Live Demo</a>
+                            <a href="#" target="_blank" rel="noopener noreferrer"
+                                class="text-gray-600 hover:text-gray-800 transition-colors">GitHub</a>
                         </div>
                     </div>
                 </div>
@@ -568,35 +657,42 @@
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-semibold text-gray-900 mb-2">Analytics Dashboard</h3>
-                        <p class="text-gray-600 mb-4">Real-time analytics dashboard built with Vue.js and Python. Displays interactive charts and data visualizations for business insights.</p>
+                        <p class="text-gray-600 mb-4">Real-time analytics dashboard built with Vue.js and Python.
+                            Displays interactive charts and data visualizations for business insights.</p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">Vue.js</span>
                             <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-sm">Python</span>
                             <span class="bg-red-100 text-red-800 px-2 py-1 rounded text-sm">Chart.js</span>
                         </div>
                         <div class="flex space-x-4">
-                            <a href="#" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-800 transition-colors">Live Demo</a>
-                            <a href="#" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-gray-800 transition-colors">GitHub</a>
+                            <a href="#" target="_blank" rel="noopener noreferrer"
+                                class="text-indigo-600 hover:text-indigo-800 transition-colors">Live Demo</a>
+                            <a href="#" target="_blank" rel="noopener noreferrer"
+                                class="text-gray-600 hover:text-gray-800 transition-colors">GitHub</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Project 3 -->
-                <div class="project-item bg-white rounded-lg shadow-md overflow-hidden card-hover" data-category="mobile">
+                <div class="project-item bg-white rounded-lg shadow-md overflow-hidden card-hover"
+                    data-category="mobile">
                     <div class="project-image h-48 flex items-center justify-center text-white text-6xl">
                         📱
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-semibold text-gray-900 mb-2">Task Management App</h3>
-                        <p class="text-gray-600 mb-4">Cross-platform mobile app for task management with React Native. Features offline sync, push notifications, and team collaboration.</p>
+                        <p class="text-gray-600 mb-4">Cross-platform mobile app for task management with React Native.
+                            Features offline sync, push notifications, and team collaboration.</p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">React Native</span>
                             <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-sm">Firebase</span>
                             <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded text-sm">Redux</span>
                         </div>
                         <div class="flex space-x-4">
-                            <a href="#" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-800 transition-colors">App Store</a>
-                            <a href="#" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-gray-800 transition-colors">GitHub</a>
+                            <a href="#" target="_blank" rel="noopener noreferrer"
+                                class="text-indigo-600 hover:text-indigo-800 transition-colors">App Store</a>
+                            <a href="#" target="_blank" rel="noopener noreferrer"
+                                class="text-gray-600 hover:text-gray-800 transition-colors">GitHub</a>
                         </div>
                     </div>
                 </div>
@@ -608,15 +704,18 @@
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-semibold text-gray-900 mb-2">RESTful API Service</h3>
-                        <p class="text-gray-600 mb-4">Scalable REST API built with Express.js and PostgreSQL. Includes authentication, rate limiting, and comprehensive documentation.</p>
+                        <p class="text-gray-600 mb-4">Scalable REST API built with Express.js and PostgreSQL. Includes
+                            authentication, rate limiting, and comprehensive documentation.</p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">Express.js</span>
                             <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">PostgreSQL</span>
                             <span class="bg-gray-100 text-gray-800 px-2 py-1 rounded text-sm">Swagger</span>
                         </div>
                         <div class="flex space-x-4">
-                            <a href="#" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-800 transition-colors">API Docs</a>
-                            <a href="#" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-gray-800 transition-colors">GitHub</a>
+                            <a href="#" target="_blank" rel="noopener noreferrer"
+                                class="text-indigo-600 hover:text-indigo-800 transition-colors">API Docs</a>
+                            <a href="#" target="_blank" rel="noopener noreferrer"
+                                class="text-gray-600 hover:text-gray-800 transition-colors">GitHub</a>
                         </div>
                     </div>
                 </div>
@@ -628,15 +727,18 @@
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-semibold text-gray-900 mb-2">Learning Management System</h3>
-                        <p class="text-gray-600 mb-4">Complete LMS platform with course creation, student enrollment, progress tracking, and video streaming capabilities.</p>
+                        <p class="text-gray-600 mb-4">Complete LMS platform with course creation, student enrollment,
+                            progress tracking, and video streaming capabilities.</p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">React</span>
                             <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-sm">Django</span>
                             <span class="bg-red-100 text-red-800 px-2 py-1 rounded text-sm">AWS S3</span>
                         </div>
                         <div class="flex space-x-4">
-                            <a href="#" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-800 transition-colors">Live Demo</a>
-                            <a href="#" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-gray-800 transition-colors">GitHub</a>
+                            <a href="#" target="_blank" rel="noopener noreferrer"
+                                class="text-indigo-600 hover:text-indigo-800 transition-colors">Live Demo</a>
+                            <a href="#" target="_blank" rel="noopener noreferrer"
+                                class="text-gray-600 hover:text-gray-800 transition-colors">GitHub</a>
                         </div>
                     </div>
                 </div>
@@ -648,15 +750,18 @@
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-semibold text-gray-900 mb-2">Real-time Chat Application</h3>
-                        <p class="text-gray-600 mb-4">WebSocket-based chat application with private messaging, group chats, file sharing, and emoji reactions.</p>
+                        <p class="text-gray-600 mb-4">WebSocket-based chat application with private messaging, group
+                            chats, file sharing, and emoji reactions.</p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">Socket.io</span>
                             <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">React</span>
                             <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-sm">MongoDB</span>
                         </div>
                         <div class="flex space-x-4">
-                            <a href="#" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-800 transition-colors">Live Demo</a>
-                            <a href="#" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-gray-800 transition-colors">GitHub</a>
+                            <a href="#" target="_blank" rel="noopener noreferrer"
+                                class="text-indigo-600 hover:text-indigo-800 transition-colors">Live Demo</a>
+                            <a href="#" target="_blank" rel="noopener noreferrer"
+                                class="text-gray-600 hover:text-gray-800 transition-colors">GitHub</a>
                         </div>
                     </div>
                 </div>
@@ -666,7 +771,7 @@
 
     <!-- Blog Page -->
     <div id="blog" class="page">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 mt-8">
             <div class="text-center mb-12">
                 <h1 class="text-4xl font-bold text-gray-900 mb-4">My Blog</h1>
                 <p class="text-xl text-gray-600">Thoughts, tutorials, and insights from my development journey</p>
@@ -675,17 +780,24 @@
             <!-- Featured Post -->
             <section class="mb-16">
                 <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <div class="bg-gradient-to-r from-indigo-500 to-purple-600 h-64 flex items-center justify-center text-white text-8xl">
+                    <div
+                        class="bg-gradient-to-r from-indigo-500 to-purple-600 h-64 flex items-center justify-center text-white text-8xl">
                         📝
                     </div>
                     <div class="p-8">
                         <div class="flex items-center mb-4">
-                            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm mr-4">Featured</span>
+                            <span
+                                class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm mr-4">Featured</span>
                             <span class="text-gray-500 text-sm">December 15, 2024</span>
                         </div>
-                        <h2 class="text-3xl font-bold text-gray-900 mb-4">Building Scalable React Applications: Best Practices and Patterns</h2>
-                        <p class="text-gray-700 mb-6">In this comprehensive guide, I share my experience and best practices for building large-scale React applications. From component architecture to state management, learn how to create maintainable and performant React apps.</p>
-                        <button class="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition-colors">Read Full Article</button>
+                        <h2 class="text-3xl font-bold text-gray-900 mb-4">Building Scalable React Applications: Best
+                            Practices and Patterns</h2>
+                        <p class="text-gray-700 mb-6">In this comprehensive guide, I share my experience and best
+                            practices for building large-scale React applications. From component architecture to state
+                            management, learn how to create maintainable and performant React apps.</p>
+                        <button
+                            class="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition-colors">Read
+                            Full Article</button>
                     </div>
                 </div>
             </section>
@@ -695,7 +807,8 @@
                 <h2 class="text-3xl font-bold text-gray-900 mb-8">Recent Posts</h2>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <article class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
-                        <div class="bg-gradient-to-r from-green-500 to-teal-600 h-48 flex items-center justify-center text-white text-6xl">
+                        <div
+                            class="bg-gradient-to-r from-green-500 to-teal-600 h-48 flex items-center justify-center text-white text-6xl">
                             🚀
                         </div>
                         <div class="p-6">
@@ -704,13 +817,15 @@
                                 <span class="text-gray-500 text-sm">December 10, 2024</span>
                             </div>
                             <h3 class="text-xl font-semibold text-gray-900 mb-3">Optimizing Node.js Performance</h3>
-                            <p class="text-gray-600 mb-4">Learn advanced techniques to optimize your Node.js applications for better performance and scalability.</p>
+                            <p class="text-gray-600 mb-4">Learn advanced techniques to optimize your Node.js
+                                applications for better performance and scalability.</p>
                             <button class="text-indigo-600 hover:text-indigo-800 transition-colors">Read More →</button>
                         </div>
                     </article>
 
                     <article class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
-                        <div class="bg-gradient-to-r from-blue-500 to-cyan-600 h-48 flex items-center justify-center text-white text-6xl">
+                        <div
+                            class="bg-gradient-to-r from-blue-500 to-cyan-600 h-48 flex items-center justify-center text-white text-6xl">
                             🎨
                         </div>
                         <div class="p-6">
@@ -719,13 +834,15 @@
                                 <span class="text-gray-500 text-sm">December 5, 2024</span>
                             </div>
                             <h3 class="text-xl font-semibold text-gray-900 mb-3">Modern CSS Techniques</h3>
-                            <p class="text-gray-600 mb-4">Explore the latest CSS features and how to use them to create stunning user interfaces.</p>
+                            <p class="text-gray-600 mb-4">Explore the latest CSS features and how to use them to create
+                                stunning user interfaces.</p>
                             <button class="text-indigo-600 hover:text-indigo-800 transition-colors">Read More →</button>
                         </div>
                     </article>
 
                     <article class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
-                        <div class="bg-gradient-to-r from-purple-500 to-pink-600 h-48 flex items-center justify-center text-white text-6xl">
+                        <div
+                            class="bg-gradient-to-r from-purple-500 to-pink-600 h-48 flex items-center justify-center text-white text-6xl">
                             🔧
                         </div>
                         <div class="p-6">
@@ -734,13 +851,15 @@
                                 <span class="text-gray-500 text-sm">November 28, 2024</span>
                             </div>
                             <h3 class="text-xl font-semibold text-gray-900 mb-3">Docker for Developers</h3>
-                            <p class="text-gray-600 mb-4">A practical guide to using Docker in your development workflow for better consistency and deployment.</p>
+                            <p class="text-gray-600 mb-4">A practical guide to using Docker in your development workflow
+                                for better consistency and deployment.</p>
                             <button class="text-indigo-600 hover:text-indigo-800 transition-colors">Read More →</button>
                         </div>
                     </article>
 
                     <article class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
-                        <div class="bg-gradient-to-r from-orange-500 to-red-600 h-48 flex items-center justify-center text-white text-6xl">
+                        <div
+                            class="bg-gradient-to-r from-orange-500 to-red-600 h-48 flex items-center justify-center text-white text-6xl">
                             📱
                         </div>
                         <div class="p-6">
@@ -749,13 +868,15 @@
                                 <span class="text-gray-500 text-sm">November 20, 2024</span>
                             </div>
                             <h3 class="text-xl font-semibold text-gray-900 mb-3">React Native vs Flutter</h3>
-                            <p class="text-gray-600 mb-4">Comparing two popular cross-platform mobile development frameworks and when to use each.</p>
+                            <p class="text-gray-600 mb-4">Comparing two popular cross-platform mobile development
+                                frameworks and when to use each.</p>
                             <button class="text-indigo-600 hover:text-indigo-800 transition-colors">Read More →</button>
                         </div>
                     </article>
 
                     <article class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
-                        <div class="bg-gradient-to-r from-teal-500 to-green-600 h-48 flex items-center justify-center text-white text-6xl">
+                        <div
+                            class="bg-gradient-to-r from-teal-500 to-green-600 h-48 flex items-center justify-center text-white text-6xl">
                             🔐
                         </div>
                         <div class="p-6">
@@ -764,22 +885,26 @@
                                 <span class="text-gray-500 text-sm">November 15, 2024</span>
                             </div>
                             <h3 class="text-xl font-semibold text-gray-900 mb-3">Web Security Best Practices</h3>
-                            <p class="text-gray-600 mb-4">Essential security measures every web developer should implement to protect their applications.</p>
+                            <p class="text-gray-600 mb-4">Essential security measures every web developer should
+                                implement to protect their applications.</p>
                             <button class="text-indigo-600 hover:text-indigo-800 transition-colors">Read More →</button>
                         </div>
                     </article>
 
                     <article class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
-                        <div class="bg-gradient-to-r from-yellow-500 to-orange-600 h-48 flex items-center justify-center text-white text-6xl">
+                        <div
+                            class="bg-gradient-to-r from-yellow-500 to-orange-600 h-48 flex items-center justify-center text-white text-6xl">
                             ⚡
                         </div>
                         <div class="p-6">
                             <div class="flex items-center mb-3">
-                                <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-sm mr-3">Performance</span>
+                                <span
+                                    class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-sm mr-3">Performance</span>
                                 <span class="text-gray-500 text-sm">November 8, 2024</span>
                             </div>
                             <h3 class="text-xl font-semibold text-gray-900 mb-3">Web Performance Optimization</h3>
-                            <p class="text-gray-600 mb-4">Techniques and tools to make your web applications faster and more efficient for better user experience.</p>
+                            <p class="text-gray-600 mb-4">Techniques and tools to make your web applications faster and
+                                more efficient for better user experience.</p>
                             <button class="text-indigo-600 hover:text-indigo-800 transition-colors">Read More →</button>
                         </div>
                     </article>
@@ -789,10 +914,13 @@
             <!-- Newsletter Signup -->
             <section class="mt-16 bg-indigo-50 rounded-xl p-8 text-center">
                 <h2 class="text-3xl font-bold text-gray-900 mb-4">Stay Updated</h2>
-                <p class="text-gray-600 mb-6">Subscribe to my newsletter to get the latest articles and tutorials delivered to your inbox.</p>
+                <p class="text-gray-600 mb-6">Subscribe to my newsletter to get the latest articles and tutorials
+                    delivered to your inbox.</p>
                 <form onsubmit="handleNewsletterSignup(event)" class="max-w-md mx-auto flex gap-4">
-                    <input type="email" placeholder="Enter your email" required class="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
-                    <button type="submit" class="bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition-colors">Subscribe</button>
+                    <input type="email" placeholder="Enter your email" required
+                        class="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                    <button type="submit"
+                        class="bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition-colors">Subscribe</button>
                 </form>
                 <div id="newsletter-success" class="hidden mt-4 p-4 bg-green-100 text-green-700 rounded-lg">
                     Thank you for subscribing! You'll receive my latest articles in your inbox.
@@ -803,7 +931,7 @@
 
     <!-- Testimonials Page -->
     <div id="testimonials" class="page">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 mt-8">
             <div class="text-center mb-12">
                 <h1 class="text-4xl font-bold text-gray-900 mb-4">What Clients Say</h1>
                 <p class="text-xl text-gray-600">Feedback from clients and colleagues I've worked with</p>
@@ -814,10 +942,12 @@
                 <div class="bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl p-8 text-white text-center">
                     <div class="text-6xl mb-6">⭐</div>
                     <blockquote class="text-2xl font-medium mb-6">
-                        "Abdalsalam is an exceptional developer who consistently delivers high-quality solutions. His attention to detail and problem-solving skills are outstanding."
+                        "Abdalsalam is an exceptional developer who consistently delivers high-quality solutions. His
+                        attention to detail and problem-solving skills are outstanding."
                     </blockquote>
                     <div class="flex items-center justify-center">
-                        <div class="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center text-2xl mr-4">
+                        <div
+                            class="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center text-2xl mr-4">
                             👨‍💼
                         </div>
                         <div class="text-left">
@@ -836,10 +966,12 @@
                             <div class="flex text-yellow-400 text-xl">⭐⭐⭐⭐⭐</div>
                         </div>
                         <blockquote class="text-gray-700 mb-4">
-                            "Working with Abdalsalam was a fantastic experience. He delivered our e-commerce platform ahead of schedule and exceeded all our expectations. Highly recommended!"
+                            "Working with Abdalsalam was a fantastic experience. He delivered our e-commerce platform
+                            ahead of schedule and exceeded all our expectations. Highly recommended!"
                         </blockquote>
                         <div class="flex items-center">
-                            <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-600 rounded-full flex items-center justify-center text-white text-lg mr-3">
+                            <div
+                                class="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-600 rounded-full flex items-center justify-center text-white text-lg mr-3">
                                 👩‍💼
                             </div>
                             <div>
@@ -854,10 +986,12 @@
                             <div class="flex text-yellow-400 text-xl">⭐⭐⭐⭐⭐</div>
                         </div>
                         <blockquote class="text-gray-700 mb-4">
-                            "Abdalsalam's expertise in full-stack development helped us build a robust analytics dashboard. His code quality and documentation are exceptional."
+                            "Abdalsalam's expertise in full-stack development helped us build a robust analytics
+                            dashboard. His code quality and documentation are exceptional."
                         </blockquote>
                         <div class="flex items-center">
-                            <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-600 rounded-full flex items-center justify-center text-white text-lg mr-3">
+                            <div
+                                class="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-600 rounded-full flex items-center justify-center text-white text-lg mr-3">
                                 👨‍💻
                             </div>
                             <div>
@@ -872,10 +1006,12 @@
                             <div class="flex text-yellow-400 text-xl">⭐⭐⭐⭐⭐</div>
                         </div>
                         <blockquote class="text-gray-700 mb-4">
-                            "Professional, reliable, and incredibly skilled. Abdalsalam transformed our outdated system into a modern, efficient application. Great communication throughout the project."
+                            "Professional, reliable, and incredibly skilled. Abdalsalam transformed our outdated system
+                            into a modern, efficient application. Great communication throughout the project."
                         </blockquote>
                         <div class="flex items-center">
-                            <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center text-white text-lg mr-3">
+                            <div
+                                class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center text-white text-lg mr-3">
                                 👩‍🎨
                             </div>
                             <div>
@@ -890,10 +1026,12 @@
                             <div class="flex text-yellow-400 text-xl">⭐⭐⭐⭐⭐</div>
                         </div>
                         <blockquote class="text-gray-700 mb-4">
-                            "The mobile app Abdalsalam developed for us has been a game-changer. His attention to user experience and performance optimization is remarkable."
+                            "The mobile app Abdalsalam developed for us has been a game-changer. His attention to user
+                            experience and performance optimization is remarkable."
                         </blockquote>
                         <div class="flex items-center">
-                            <div class="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex items-center justify-center text-white text-lg mr-3">
+                            <div
+                                class="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex items-center justify-center text-white text-lg mr-3">
                                 👨‍🚀
                             </div>
                             <div>
@@ -908,10 +1046,12 @@
                             <div class="flex text-yellow-400 text-xl">⭐⭐⭐⭐⭐</div>
                         </div>
                         <blockquote class="text-gray-700 mb-4">
-                            "Abdalsalam's API development skills are top-notch. He created a scalable backend system that handles our growing user base effortlessly. Excellent work!"
+                            "Abdalsalam's API development skills are top-notch. He created a scalable backend system
+                            that handles our growing user base effortlessly. Excellent work!"
                         </blockquote>
                         <div class="flex items-center">
-                            <div class="w-12 h-12 bg-gradient-to-r from-teal-500 to-green-600 rounded-full flex items-center justify-center text-white text-lg mr-3">
+                            <div
+                                class="w-12 h-12 bg-gradient-to-r from-teal-500 to-green-600 rounded-full flex items-center justify-center text-white text-lg mr-3">
                                 👩‍🔬
                             </div>
                             <div>
@@ -926,10 +1066,12 @@
                             <div class="flex text-yellow-400 text-xl">⭐⭐⭐⭐⭐</div>
                         </div>
                         <blockquote class="text-gray-700 mb-4">
-                            "Working with Abdalsalam was seamless. He understood our requirements perfectly and delivered a learning management system that our users love. Highly professional!"
+                            "Working with Abdalsalam was seamless. He understood our requirements perfectly and
+                            delivered a learning management system that our users love. Highly professional!"
                         </blockquote>
                         <div class="flex items-center">
-                            <div class="w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-600 rounded-full flex items-center justify-center text-white text-lg mr-3">
+                            <div
+                                class="w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-600 rounded-full flex items-center justify-center text-white text-lg mr-3">
                                 👨‍🏫
                             </div>
                             <div>
@@ -968,7 +1110,7 @@
 
     <!-- Contact Page -->
     <div id="contact" class="page">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 mt-8">
             <div class="text-center mb-12">
                 <h1 class="text-4xl font-bold text-gray-900 mb-4">Get In Touch</h1>
                 <p class="text-xl text-gray-600">Let's discuss your next project or collaboration opportunity</p>
@@ -981,21 +1123,29 @@
                     <form onsubmit="handleContactSubmit(event)" class="space-y-6">
                         <div class="grid grid-cols-2 gap-4">
                             <div>
-                                <label for="contact-first-name" class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
-                                <input type="text" id="contact-first-name" name="firstName" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                                <label for="contact-first-name"
+                                    class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
+                                <input type="text" id="contact-first-name" name="firstName" required
+                                    class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
                             </div>
                             <div>
-                                <label for="contact-last-name" class="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
-                                <input type="text" id="contact-last-name" name="lastName" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                                <label for="contact-last-name" class="block text-sm font-medium text-gray-700 mb-2">Last
+                                    Name</label>
+                                <input type="text" id="contact-last-name" name="lastName" required
+                                    class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
                             </div>
                         </div>
                         <div>
-                            <label for="contact-email" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
-                            <input type="email" id="contact-email" name="email" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                            <label for="contact-email" class="block text-sm font-medium text-gray-700 mb-2">Email
+                                Address</label>
+                            <input type="email" id="contact-email" name="email" required
+                                class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
                         </div>
                         <div>
-                            <label for="contact-subject" class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
-                            <select id="contact-subject" name="subject" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                            <label for="contact-subject"
+                                class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                            <select id="contact-subject" name="subject" required
+                                class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
                                 <option value="">Select a subject</option>
                                 <option value="project">New Project</option>
                                 <option value="collaboration">Collaboration</option>
@@ -1004,8 +1154,10 @@
                             </select>
                         </div>
                         <div>
-                            <label for="contact-budget" class="block text-sm font-medium text-gray-700 mb-2">Project Budget (Optional)</label>
-                            <select id="contact-budget" name="budget" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                            <label for="contact-budget" class="block text-sm font-medium text-gray-700 mb-2">Project
+                                Budget (Optional)</label>
+                            <select id="contact-budget" name="budget"
+                                class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
                                 <option value="">Select budget range</option>
                                 <option value="under-5k">Under $5,000</option>
                                 <option value="5k-10k">$5,000 - $10,000</option>
@@ -1014,10 +1166,15 @@
                             </select>
                         </div>
                         <div>
-                            <label for="contact-message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
-                            <textarea id="contact-message" name="message" rows="5" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-transparent" placeholder="Tell me about your project..."></textarea>
+                            <label for="contact-message"
+                                class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                            <textarea id="contact-message" name="message" rows="5" required
+                                class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                                placeholder="Tell me about your project..."></textarea>
                         </div>
-                        <button type="submit" class="w-full bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-700 transition-colors font-semibold">Send Message</button>
+                        <button type="submit"
+                            class="w-full bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-700 transition-colors font-semibold">Send
+                            Message</button>
                     </form>
                     <div id="contact-success" class="hidden mt-4 p-4 bg-green-100 text-green-700 rounded-lg">
                         Thank you for your message! I'll get back to you within 24 hours.
@@ -1063,16 +1220,20 @@
                     <div class="bg-white p-6 rounded-lg shadow-md">
                         <h3 class="text-xl font-semibold text-gray-900 mb-4">Let's Connect</h3>
                         <div class="grid grid-cols-2 gap-4">
-                            <a href="#" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition-colors">
+                            <a href="#" target="_blank" rel="noopener noreferrer"
+                                class="flex items-center justify-center bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition-colors">
                                 <span class="mr-2">💼</span> LinkedIn
                             </a>
-                            <a href="#" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center bg-gray-800 text-white p-3 rounded-lg hover:bg-gray-900 transition-colors">
+                            <a href="#" target="_blank" rel="noopener noreferrer"
+                                class="flex items-center justify-center bg-gray-800 text-white p-3 rounded-lg hover:bg-gray-900 transition-colors">
                                 <span class="mr-2">🐙</span> GitHub
                             </a>
-                            <a href="#" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center bg-blue-400 text-white p-3 rounded-lg hover:bg-blue-500 transition-colors">
+                            <a href="#" target="_blank" rel="noopener noreferrer"
+                                class="flex items-center justify-center bg-blue-400 text-white p-3 rounded-lg hover:bg-blue-500 transition-colors">
                                 <span class="mr-2">🐦</span> Twitter
                             </a>
-                            <a href="#" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center bg-purple-600 text-white p-3 rounded-lg hover:bg-purple-700 transition-colors">
+                            <a href="#" target="_blank" rel="noopener noreferrer"
+                                class="flex items-center justify-center bg-purple-600 text-white p-3 rounded-lg hover:bg-purple-700 transition-colors">
                                 <span class="mr-2">📷</span> Instagram
                             </a>
                         </div>
@@ -1083,11 +1244,13 @@
                         <div class="space-y-3">
                             <div class="flex items-center justify-between">
                                 <span class="text-gray-700">New Projects</span>
-                                <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Available</span>
+                                <span
+                                    class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Available</span>
                             </div>
                             <div class="flex items-center justify-between">
                                 <span class="text-gray-700">Consultations</span>
-                                <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Available</span>
+                                <span
+                                    class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Available</span>
                             </div>
                             <div class="flex items-center justify-between">
                                 <span class="text-gray-700">Collaborations</span>
@@ -1106,20 +1269,28 @@
             <div class="grid md:grid-cols-4 gap-8">
                 <div>
                     <div class="text-2xl font-bold mb-4">Abdalsalam Abakar</div>
-                    <p class="text-gray-400 mb-4">Full-Stack Developer passionate about creating innovative web solutions.</p>
+                    <p class="text-gray-400 mb-4">Full-Stack Developer passionate about creating innovative web
+                        solutions.</p>
                     <div class="flex space-x-4">
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">LinkedIn</a>
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">GitHub</a>
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">Twitter</a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"
+                            class="text-gray-400 hover:text-white transition-colors">LinkedIn</a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"
+                            class="text-gray-400 hover:text-white transition-colors">GitHub</a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"
+                            class="text-gray-400 hover:text-white transition-colors">Twitter</a>
                     </div>
                 </div>
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
                     <ul class="space-y-2 text-gray-400">
-                        <li><button onclick="showPage('home')" class="hover:text-white transition-colors">Home</button></li>
-                        <li><button onclick="showPage('about')" class="hover:text-white transition-colors">About</button></li>
-                        <li><button onclick="showPage('skills')" class="hover:text-white transition-colors">Skills</button></li>
-                        <li><button onclick="showPage('portfolio')" class="hover:text-white transition-colors">Portfolio</button></li>
+                        <li><button onclick="showPage('home')" class="hover:text-white transition-colors">Home</button>
+                        </li>
+                        <li><button onclick="showPage('about')"
+                                class="hover:text-white transition-colors">About</button></li>
+                        <li><button onclick="showPage('skills')"
+                                class="hover:text-white transition-colors">Skills</button></li>
+                        <li><button onclick="showPage('portfolio')"
+                                class="hover:text-white transition-colors">Portfolio</button></li>
                     </ul>
                 </div>
                 <div>
@@ -1136,7 +1307,8 @@
                     <ul class="space-y-2 text-gray-400">
                         <li>abdalsalam.dev@email.com</li>
                         <li>+1 (555) 123-4567</li>
-                        <li><button onclick="showPage('contact')" class="hover:text-white transition-colors">Get In Touch</button></li>
+                        <li><button onclick="showPage('contact')" class="hover:text-white transition-colors">Get In
+                                Touch</button></li>
                     </ul>
                 </div>
             </div>
@@ -1152,13 +1324,13 @@
             // Hide all pages
             const pages = document.querySelectorAll('.page');
             pages.forEach(page => page.classList.remove('active'));
-            
+
             // Show selected page
             document.getElementById(pageId).classList.add('active');
-            
+
             // Close mobile menu if open
             document.getElementById('mobile-menu').classList.add('hidden');
-            
+
             // Scroll to top
             window.scrollTo(0, 0);
         }
@@ -1176,10 +1348,10 @@
             let charIndex = 0;
             let isDeleting = false;
             const typingElement = document.getElementById('typing-text');
-            
+
             function type() {
                 const currentText = texts[textIndex];
-                
+
                 if (isDeleting) {
                     typingElement.textContent = currentText.substring(0, charIndex - 1);
                     charIndex--;
@@ -1187,18 +1359,18 @@
                     typingElement.textContent = currentText.substring(0, charIndex + 1);
                     charIndex++;
                 }
-                
+
                 if (!isDeleting && charIndex === currentText.length) {
                     setTimeout(() => isDeleting = true, 2000);
                 } else if (isDeleting && charIndex === 0) {
                     isDeleting = false;
                     textIndex = (textIndex + 1) % texts.length;
                 }
-                
+
                 const typingSpeed = isDeleting ? 50 : 100;
                 setTimeout(type, typingSpeed);
             }
-            
+
             type();
         }
 
@@ -1206,7 +1378,7 @@
         function filterProjects(category) {
             const projects = document.querySelectorAll('.project-item');
             const filterBtns = document.querySelectorAll('.filter-btn');
-            
+
             // Update button styles
             filterBtns.forEach(btn => {
                 btn.classList.remove('bg-indigo-600', 'text-white');
@@ -1214,7 +1386,7 @@
             });
             event.target.classList.remove('bg-gray-200', 'text-gray-700');
             event.target.classList.add('bg-indigo-600', 'text-white');
-            
+
             // Filter projects
             projects.forEach(project => {
                 if (category === 'all' || project.dataset.category === category) {
@@ -1228,7 +1400,7 @@
         // Form handlers
         function handleContactSubmit(event) {
             event.preventDefault();
-            
+
             // Simulate form submission
             setTimeout(() => {
                 document.getElementById('contact-success').classList.remove('hidden');
@@ -1238,7 +1410,7 @@
 
         function handleNewsletterSignup(event) {
             event.preventDefault();
-            
+
             // Simulate newsletter signup
             setTimeout(() => {
                 document.getElementById('newsletter-success').classList.remove('hidden');
@@ -1247,10 +1419,12 @@
         }
 
         // Initialize page
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             showPage('home');
             startTypingAnimation();
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'991a3fe812c173b4',t:'MTc2MDk4MTQ5NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'991a3fe812c173b4',t:'MTc2MDk4MTQ5NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+</body>
+
 </html>
