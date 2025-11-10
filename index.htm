@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Building Scalable React Applications</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-indigo-600 text-white py-6 text-center ">
+    <h1 class="text-3xl font-bold">Building Scalable React Applications</h1>
+    <p class="text-indigo-200 mt-2">Best Practices and Patterns for Large Projects</p>
+  </header>
+
+  <!-- Article -->
+  <main class="max-w-3xl mx-auto bg-white mt-10 p-8 rounded-lg shadow-md">
+    <img src="./image copy 6.png" alt="React App" class="rounded-lg mb-6 w-full">
+
+    <p class="text-gray-500 text-sm mb-4">Published on December 15, 2024 • By Abdalsalam Abakar</p>
+
+    <h2 class="text-2xl font-bold mb-4">Introduction</h2>
+    <p class="mb-6 leading-relaxed">
+      In this article, I’ll share practical insights and techniques I’ve learned from building
+      scalable, maintainable React applications over the years. Whether you’re working on a startup
+      MVP or a large enterprise app, scalability and clean architecture are key to long-term success.
+    </p>
+
+    <h2 class="text-2xl font-bold mb-4">1. Component Architecture</h2>
+    <p class="mb-6 leading-relaxed">
+      Start by structuring your components logically. Use a feature-based folder structure instead of
+      grouping by type. Each feature should own its components, hooks, and styles.
+    </p>
+
+    <pre class="bg-gray-100 p-4 rounded-lg text-sm mb-6 overflow-x-auto">
+      src/
+      ├── features/
+      │   ├── auth/
+      │   │   ├── LoginForm.jsx
+      │   │   └── authSlice.js
+      │   ├── dashboard/
+      │   │   ├── DashboardPage.jsx
+      │   │   └── dashboardSlice.js
+      └── app/
+          ├── store.js
+          └── App.js
+    </pre>
+
+    <h2 class="text-2xl font-bold mb-4">2. State Management</h2>
+    <p class="mb-6 leading-relaxed">
+      Use tools like Redux Toolkit or Zustand for predictable state management. Keep global state minimal,
+      and use React context or component state where possible to avoid over-complication.
+    </p>
+
+    <h2 class="text-2xl font-bold mb-4">3. Performance Optimization</h2>
+    <p class="mb-6 leading-relaxed">
+      Lazy load non-critical components, memoize heavy computations, and split your code using React.lazy().
+      This improves initial load time and keeps your app fast.
+    </p>
+
+    <blockquote class="border-l-4 border-indigo-600 pl-4 italic text-gray-700 mb-6">
+      “Scalable apps aren’t just about more code — they’re about smarter structure.”
+    </blockquote>
+
+    <h2 class="text-2xl font-bold mb-4">Conclusion</h2>
+    <p class="mb-8 leading-relaxed">
+      Building scalable React apps is about discipline and patterns, not complexity.
+      With clean architecture, strong separation of concerns, and thoughtful component design,
+      your app will grow gracefully with your team.
+    </p>
+
+    <a href="index.html" class="inline-block bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition-colors">
+      ← Back to Portfolio
+    </a>
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center text-gray-500 py-6 mt-10">
+    © 2024 Abdalsalam Abakar Abdalkareem. All rights reserved.
+  </footer>
+
+</body>
+</html>
