@@ -1366,144 +1366,85 @@
         </div>
     </footer>
 
-    <script>
-        // Page navigation
-        function showPage(pageId) {
-            // Hide all pages
-            const pages = document.querySelectorAll('.page');
-            pages.forEach(page => page.classList.remove('active'));
-
-            // Show selected page
-            document.getElementById(pageId).classList.add('active');
-
-            // Close mobile menu if open
-            document.getElementById('mobile-menu').classList.add('hidden');
-
-            // Scroll to top
-            window.scrollTo(0, 0);
-        }
-
-        // Mobile menu toggle
-        function toggleMobileMenu() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
-        }
-
-        // Typing animation
-        function startTypingAnimation() {
-            const texts = ['Full-Stack Developer', 'React Specialist', 'Node.js Expert', 'Problem Solver'];
-            let textIndex = 0;
-            let charIndex = 0;
-            let isDeleting = false;
-            const typingElement = document.getElementById('typing-text');
-
-            function type() {
-                const currentText = texts[textIndex];
-
-                if (isDeleting) {
-                    typingElement.textContent = currentText.substring(0, charIndex - 1);
-                    charIndex--;
-                } else {
-                    typingElement.textContent = currentText.substring(0, charIndex + 1);
-                    charIndex++;
-                }
-
-                if (!isDeleting && charIndex === currentText.length) {
-                    setTimeout(() => isDeleting = true, 2000);
-                } else if (isDeleting && charIndex === 0) {
-                    isDeleting = false;
-                    textIndex = (textIndex + 1) % texts.length;
-                }
-
-                const typingSpeed = isDeleting ? 50 : 100;
-                setTimeout(type, typingSpeed);
-            }
-
-            type();
-        }
-
-        // Portfolio filter
-        function filterProjects(category) {
-            const projects = document.querySelectorAll('.project-item');
-            const filterBtns = document.querySelectorAll('.filter-btn');
-
-            // Update button styles
-            filterBtns.forEach(btn => {
-                btn.classList.remove('bg-indigo-600', 'text-white');
-                btn.classList.add('bg-gray-200', 'text-gray-700');
-            });
-            event.target.classList.remove('bg-gray-200', 'text-gray-700');
-            event.target.classList.add('bg-indigo-600', 'text-white');
-
-            // Filter projects
-            projects.forEach(project => {
-                if (category === 'all' || project.dataset.category === category) {
-                    project.style.display = 'block';
-                } else {
-                    project.style.display = 'none';
-                }
-            });
-        }
-
-        // Form handlers
-        function handleContactSubmit(event) {
-            event.preventDefault();
-
-            // Simulate form submission
-            setTimeout(() => {
-                document.getElementById('contact-success').classList.remove('hidden');
-                event.target.reset();
-            }, 1000);
-        }
-
-        function handleNewsletterSignup(event) {
-            event.preventDefault();
-
-            // Simulate newsletter signup
-            setTimeout(() => {
-                document.getElementById('newsletter-success').classList.remove('hidden');
-                event.target.reset();
-            }, 1000);
-        }
-
-        // Initialize page
-        document.addEventListener('DOMContentLoaded', function () {
-            showPage('home');
-            startTypingAnimation();
-        });
-         // Initialize EmailJS
-  (function() {
-    emailjs.init("YOUR_PUBLIC_KEY"); // 🔹 Replace with your own key
-  })();
-
-  // Handle form submission
-  function handleContactSubmit(event) {
-    event.preventDefault();
-
-    const form = event.target;
-
-    emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", form)
-      .then(() => {
-        // Show success message
-        document.getElementById('contact-success').classList.remove('hidden');
-        form.reset();
-      }, (error) => {
-        console.error("FAILED...", error);
-        alert("❌ Something went wrong. Please try again.");
-      });
-  }
-    </script>
-    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'991a3fe812c173b4',t:'MTc2MDk4MTQ5NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
-    <!-- EmailJS library -->
+   <!-- EmailJS library -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
 <script>
-  // Initialize EmailJS
+  // 🔹 1. Initialize EmailJS
   (function() {
-    emailjs.init("xgxH0uGop2M-YVI6e"); // <-- Replace this with YOUR public key
+    emailjs.init("xgxH0uGop2M-YVI6e"); // <-- Replace with your public key
   })();
 
-  // Handle contact form submit
+  // 🔹 2. Page navigation
+  function showPage(pageId) {
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(page => page.classList.remove('active'));
+    document.getElementById(pageId).classList.add('active');
+    document.getElementById('mobile-menu').classList.add('hidden');
+    window.scrollTo(0, 0);
+  }
+
+  // 🔹 3. Mobile menu toggle
+  function toggleMobileMenu() {
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenu.classList.toggle('hidden');
+  }
+
+  // 🔹 4. Typing animation
+  function startTypingAnimation() {
+    const texts = ['Full-Stack Developer', 'React Specialist', 'Node.js Expert', 'Problem Solver'];
+    let textIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typingElement = document.getElementById('typing-text');
+
+    function type() {
+      const currentText = texts[textIndex];
+      if (isDeleting) {
+        typingElement.textContent = currentText.substring(0, charIndex - 1);
+        charIndex--;
+      } else {
+        typingElement.textContent = currentText.substring(0, charIndex + 1);
+        charIndex++;
+      }
+
+      if (!isDeleting && charIndex === currentText.length) {
+        setTimeout(() => isDeleting = true, 2000);
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        textIndex = (textIndex + 1) % texts.length;
+      }
+
+      const typingSpeed = isDeleting ? 50 : 100;
+      setTimeout(type, typingSpeed);
+    }
+
+    type();
+  }
+
+  // 🔹 5. Portfolio filter
+  function filterProjects(category) {
+    const projects = document.querySelectorAll('.project-item');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+
+    filterBtns.forEach(btn => {
+      btn.classList.remove('bg-indigo-600', 'text-white');
+      btn.classList.add('bg-gray-200', 'text-gray-700');
+    });
+
+    event.target.classList.remove('bg-gray-200', 'text-gray-700');
+    event.target.classList.add('bg-indigo-600', 'text-white');
+
+    projects.forEach(project => {
+      if (category === 'all' || project.dataset.category === category) {
+        project.style.display = 'block';
+      } else {
+        project.style.display = 'none';
+      }
+    });
+  }
+
+  // 🔹 6. Handle Contact Form (EmailJS)
   function handleContactSubmit(event) {
     event.preventDefault();
     const form = event.target;
@@ -1517,6 +1458,21 @@
         alert('❌ Something went wrong. Check console for details.');
       });
   }
+
+  // 🔹 7. Newsletter form
+  function handleNewsletterSignup(event) {
+    event.preventDefault();
+    setTimeout(() => {
+      document.getElementById('newsletter-success').classList.remove('hidden');
+      event.target.reset();
+    }, 1000);
+  }
+
+  // 🔹 8. Initialize Page on Load
+  document.addEventListener('DOMContentLoaded', function () {
+    showPage('home');
+    startTypingAnimation();
+  });
 </script>
 
 
